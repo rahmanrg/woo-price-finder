@@ -23,6 +23,7 @@ except KeyError:
     #logger.info("Token not available!")
     #raise
 
+
 if __name__ == "__main__":
     logger.info(f"Token value: {SOME_SECRET}")
 
