@@ -8,10 +8,10 @@ jobs:
     steps:
 
       - name: checkout repo content
-        uses: actions/checkout@v2 # checkout the repository content to github runner
+        uses: actions/checkout@v4 # checkout the repository content to github runner
 
       - name: setup python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.9' # install the python version needed
           
@@ -22,7 +22,15 @@ jobs:
           
       - name: execute py script # run main.py
         env:
-          SOME_SECRET: ${{ secrets.SOME_SECRET }}
+          CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
+          CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
+          URL: ${{ secrets.URL }}
+          BATCH_PRODUCTS_UPDATE_URL: ${{ secrets.BATCH_PRODUCTS_UPDATE_URL }}
+          EMAIL: ${{ secrets.EMAIL }}
+          EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+          RECEIVE_EMAIL: ${{ secrets.RECEIVE_EMAIL }}
+          CURRENCY_URL: ${{ secrets.CURRENCY_URL }}
+          DOLLAR_URL: ${{ secrets.DOLLAR_URL }}
         run: python main.py
           
       - name: commit files
