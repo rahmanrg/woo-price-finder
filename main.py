@@ -24,13 +24,13 @@ logger.addHandler(logger_file_handler)
 try:
     CONSUMER_KEY = os.environ["CONSUMER_KEY"]
     CONSUMER_SECRET = os.environ["CONSUMER_SECRET"]
-    URL = os.environ["URL"]
-    BATCH_PRODUCTS_UPDATE_URL = os.environ["BATCH_PRODUCTS_UPDATE_URL"]
-    EMAIL = os.environ["EMAIL"]
+    URL = 'https://psgift.ir/wp-json/wc/v3/products'
+    BATCH_PRODUCTS_UPDATE_URL = "https://psgift.ir/wp-json/wc/v3/products/batch"
+    EMAIL = "psgiftsp@gmail.com"
     EMAIL_APP_PASSWORD = os.environ["EMAIL_APP_PASSWORD"]
-    RECEIVE_EMAIL = os.environ["RECEIVE_EMAIL"]
-    CURRENCY_URL = os.environ["CURRENCY_URL"]
-    DOLLAR_URL = os.environ["DOLLAR_URL"]
+    RECEIVE_EMAIL = "rahmanrigi66@gmail.com"
+    CURRENCY_URL = "https://www.tgju.org/"
+    DOLLAR_URL = "https://api.priceto.day/v1/latest/irr/usd"
 except KeyError:
     CONSUMER_KEY = "Token not available!"
     CONSUMER_SECRET = "Token not available!"
