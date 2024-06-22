@@ -30,7 +30,7 @@ try:
     EMAIL_APP_PASSWORD = os.environ["EMAIL_APP_PASSWORD"]
     RECEIVE_EMAIL = "rahmanrigi66@gmail.com"
     CURRENCY_URL = "https://www.tgju.org/"
-    DOLLAR_URL = "https://api.priceto.day/v1/latest/irr/usd"
+    # DOLLAR_URL = "https://api.priceto.day/v1/latest/irr/usd"
 except KeyError:
     CONSUMER_KEY = "Token not available!"
     CONSUMER_SECRET = "Token not available!"
@@ -40,7 +40,7 @@ except KeyError:
     EMAIL_APP_PASSWORD = "Token not available!"
     RECEIVE_EMAIL = "Token not available!"
     CURRENCY_URL = "Token not available!"
-    DOLLAR_URL = "Token not available!"
+    # DOLLAR_URL = "Token not available!"
     #logger.info("Token not available!")
     #raise
 
@@ -73,7 +73,7 @@ except Exception as error:
 def price_finder():
     global dollar_price, pond_price, euro_price, try_turkey_price, aed_emirates_price, CURRENCY_URL
     url = CURRENCY_URL
-    dollar_url = DOLLAR_URL
+    # dollar_url = DOLLAR_URL
     currencyـheaders = {
         "Accept-Language" : "en-US,en;q=0.5",
         "User-Agent": "Defined",
@@ -90,20 +90,21 @@ def price_finder():
             connection.sendmail(from_addr=EMAIL,
                                 to_addrs=f"{RECEIVE_EMAIL}",
                                 msg=f"Subject:Woo (pond, try, aed, euro,) Price update failed\n\nconnection to {url} wasn't successful. So, products price update failed. Error message: {error}")
-    try:
-        dollar_response = requests.get(dollar_url, headers=currencyـheaders)
-        dollar_dict = dollar_response.json()
-        usd_price = int(str(dollar_dict['high'])[:-1])
-    except Exception as error:
-        logger.info(f"unsuccessful request: {error}")
-        with smtplib.SMTP("smtp.gmail.com") as connection:
-            connection.starttls()
-            connection.login(user=EMAIL, password=EMAIL_APP_PASSWORD)
-            connection.sendmail(from_addr=EMAIL,
-                                to_addrs=f"{RECEIVE_EMAIL}",
-                                msg=f"Subject:Woo (DOLLAR Products) Price update failed\n\nconnection to {dollar_url} wasn't successful. So, products price update failed. Error message: {error}")
+    # try:
+    #     dollar_response = requests.get(dollar_url, headers=currencyـheaders)
+    #     dollar_dict = dollar_response.json()
+    #     usd_price = int(str(dollar_dict['high'])[:-1])
+    # except Exception as error:
+    #     logger.info(f"unsuccessful request: {error}")
+    #     with smtplib.SMTP("smtp.gmail.com") as connection:
+    #         connection.starttls()
+    #         connection.login(user=EMAIL, password=EMAIL_APP_PASSWORD)
+    #         connection.sendmail(from_addr=EMAIL,
+    #                             to_addrs=f"{RECEIVE_EMAIL}",
+    #                             msg=f"Subject:Woo (DOLLAR Products) Price update failed\n\nconnection to {dollar_url} wasn't successful. So, products price update failed. Error message: {error}")
 
-    dollar_price= usd_price
+    # dollar_price= usd_price
+    dollar_price= 60000
 
     arz_table = soup.find(string="نرخ ارز آزاد").find_next('tbody')
     euro_price = int(arz_table.find('span', attrs={'class':'mini-flag flag-eu'}).find_next('td', attrs={'class':'market-high'}).text.strip().replace(',','')[:-1])
