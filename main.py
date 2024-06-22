@@ -32,8 +32,8 @@ try:
     CURRENCY_URL = "https://www.tgju.org/"
     # DOLLAR_URL = "https://api.priceto.day/v1/latest/irr/usd"
 except KeyError:
-    CONSUMER_KEY = "Token not available!"
-    CONSUMER_SECRET = "Token not available!"
+    NEW_CONSUMER_KEY = "Token not available!"
+    NEW_CONSUMER_SECRET = "Token not available!"
     URL = "Token not available!"
     BATCH_PRODUCTS_UPDATE_URL = "Token not available!"
     EMAIL = "Token not available!"
@@ -45,7 +45,7 @@ except KeyError:
     #raise
 
 # create authorization header
-credentials = f"{CONSUMER_KEY}:{CONSUMER_SECRET}"
+credentials = f"{NEW_CONSUMER_KEY}:{NEW_CONSUMER_SECRET}"
 base64_credentials = base64.b64encode(credentials.encode("utf-8")).decode("utf-8")
 headers = {
     "Authorization": f"Basic {base64_credentials}",
