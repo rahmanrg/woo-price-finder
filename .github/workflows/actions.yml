@@ -22,8 +22,8 @@ jobs:
           
       - name: execute py script # run main.py
         env:
-          CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
-          CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
+          NEW_CONSUMER_KEY: ${{ secrets.NEW_CONSUMER_KEY }}
+          NEW_CONSUMER_SECRET: ${{ secrets.NEW_CONSUMER_SECRET }}
           URL: ${{ secrets.URL }}
           BATCH_PRODUCTS_UPDATE_URL: ${{ secrets.BATCH_PRODUCTS_UPDATE_URL }}
           EMAIL: ${{ secrets.EMAIL }}

@@ -22,8 +22,8 @@ logger.addHandler(logger_file_handler)
 
 
 try:
-    CONSUMER_KEY = os.environ["CONSUMER_KEY"]
-    CONSUMER_SECRET = os.environ["CONSUMER_SECRET"]
+    NEW_CONSUMER_KEY = os.environ["NEW_CONSUMER_KEY"]
+    NEW_CONSUMER_SECRET = os.environ["NEW_CONSUMER_SECRET"]
     URL = 'https://psgift.ir/wp-json/wc/v3/products'
     BATCH_PRODUCTS_UPDATE_URL = "https://psgift.ir/wp-json/wc/v3/products/batch"
     EMAIL = "psgiftsp@gmail.com"
