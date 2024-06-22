@@ -61,6 +61,7 @@ try:
     products = response.json()
 except Exception as error:
     logger.info(f"unsuccessful request: {error}")
+    logger.info(f"cs and ck is: {NEW_CONSUMER_SECRET} and {NEW_CONSUMER_KEY}")
     with smtplib.SMTP("smtp.gmail.com") as connection:
         connection.starttls()
         connection.login(user=EMAIL, password=EMAIL_APP_PASSWORD)
